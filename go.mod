@@ -1,4 +1,4 @@
-module protoFootball2
+module protoFootball
 
 go 1.25.5
 
