@@ -44,6 +44,26 @@ export interface ActionResponse {
      * @generated from protobuf field: string message = 2;
      */
     message: string;
+    /**
+     * @generated from protobuf field: uint32 club_id = 3;
+     */
+    clubId: number;
+    /**
+     * @generated from protobuf field: string name = 4;
+     */
+    name: string;
+    /**
+     * @generated from protobuf field: string short_name = 5;
+     */
+    shortName: string;
+    /**
+     * @generated from protobuf field: string country_code = 6;
+     */
+    countryCode: string;
+    /**
+     * @generated from protobuf field: int64 founded_year = 7;
+     */
+    foundedYear: bigint;
 }
 declare class ClubRequest$Type extends MessageType<ClubRequest> {
     constructor();

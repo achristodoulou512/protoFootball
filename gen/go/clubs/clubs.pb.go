@@ -101,6 +101,11 @@ type ActionResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Status        uint32                 `protobuf:"varint,1,opt,name=status,proto3" json:"status,omitempty"`
 	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	ClubId        uint32                 `protobuf:"varint,3,opt,name=club_id,json=clubId,proto3" json:"club_id,omitempty"`
+	Name          string                 `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
+	ShortName     string                 `protobuf:"bytes,5,opt,name=short_name,json=shortName,proto3" json:"short_name,omitempty"`
+	CountryCode   string                 `protobuf:"bytes,6,opt,name=country_code,json=countryCode,proto3" json:"country_code,omitempty"`
+	FoundedYear   int64                  `protobuf:"varint,7,opt,name=founded_year,json=foundedYear,proto3" json:"founded_year,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -149,6 +154,41 @@ func (x *ActionResponse) GetMessage() string {
 	return ""
 }
 
+func (x *ActionResponse) GetClubId() uint32 {
+	if x != nil {
+		return x.ClubId
+	}
+	return 0
+}
+
+func (x *ActionResponse) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *ActionResponse) GetShortName() string {
+	if x != nil {
+		return x.ShortName
+	}
+	return ""
+}
+
+func (x *ActionResponse) GetCountryCode() string {
+	if x != nil {
+		return x.CountryCode
+	}
+	return ""
+}
+
+func (x *ActionResponse) GetFoundedYear() int64 {
+	if x != nil {
+		return x.FoundedYear
+	}
+	return 0
+}
+
 var File_clubs_clubs_proto protoreflect.FileDescriptor
 
 const file_clubs_clubs_proto_rawDesc = "" +
@@ -160,10 +200,16 @@ const file_clubs_clubs_proto_rawDesc = "" +
 	"\n" +
 	"short_name\x18\x03 \x01(\tR\tshortName\x12!\n" +
 	"\fcountry_code\x18\x04 \x01(\tR\vcountryCode\x12!\n" +
-	"\ffounded_year\x18\x05 \x01(\x03R\vfoundedYear\"B\n" +
+	"\ffounded_year\x18\x05 \x01(\x03R\vfoundedYear\"\xd4\x01\n" +
 	"\x0eActionResponse\x12\x16\n" +
 	"\x06status\x18\x01 \x01(\rR\x06status\x12\x18\n" +
-	"\amessage\x18\x02 \x01(\tR\amessage2C\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\x12\x17\n" +
+	"\aclub_id\x18\x03 \x01(\rR\x06clubId\x12\x12\n" +
+	"\x04name\x18\x04 \x01(\tR\x04name\x12\x1d\n" +
+	"\n" +
+	"short_name\x18\x05 \x01(\tR\tshortName\x12!\n" +
+	"\fcountry_code\x18\x06 \x01(\tR\vcountryCode\x12!\n" +
+	"\ffounded_year\x18\a \x01(\x03R\vfoundedYear2C\n" +
 	"\vClubService\x124\n" +
 	"\aGetClub\x12\x12.clubs.ClubRequest\x1a\x15.clubs.ActionResponseB{\n" +
 	"\tcom.clubsB\n" +

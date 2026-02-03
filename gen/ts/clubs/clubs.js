@@ -93,13 +93,23 @@ class ActionResponse$Type extends MessageType {
     constructor() {
         super("clubs.ActionResponse", [
             { no: 1, name: "status", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "message", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
+            { no: 2, name: "message", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 3, name: "club_id", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
+            { no: 4, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 5, name: "short_name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 6, name: "country_code", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 7, name: "founded_year", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
         ]);
     }
     create(value) {
         const message = globalThis.Object.create((this.messagePrototype));
         message.status = 0;
         message.message = "";
+        message.clubId = 0;
+        message.name = "";
+        message.shortName = "";
+        message.countryCode = "";
+        message.foundedYear = 0n;
         if (value !== undefined)
             reflectionMergePartial(this, message, value);
         return message;
@@ -114,6 +124,21 @@ class ActionResponse$Type extends MessageType {
                     break;
                 case /* string message */ 2:
                     message.message = reader.string();
+                    break;
+                case /* uint32 club_id */ 3:
+                    message.clubId = reader.uint32();
+                    break;
+                case /* string name */ 4:
+                    message.name = reader.string();
+                    break;
+                case /* string short_name */ 5:
+                    message.shortName = reader.string();
+                    break;
+                case /* string country_code */ 6:
+                    message.countryCode = reader.string();
+                    break;
+                case /* int64 founded_year */ 7:
+                    message.foundedYear = reader.int64().toBigInt();
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -133,6 +158,21 @@ class ActionResponse$Type extends MessageType {
         /* string message = 2; */
         if (message.message !== "")
             writer.tag(2, WireType.LengthDelimited).string(message.message);
+        /* uint32 club_id = 3; */
+        if (message.clubId !== 0)
+            writer.tag(3, WireType.Varint).uint32(message.clubId);
+        /* string name = 4; */
+        if (message.name !== "")
+            writer.tag(4, WireType.LengthDelimited).string(message.name);
+        /* string short_name = 5; */
+        if (message.shortName !== "")
+            writer.tag(5, WireType.LengthDelimited).string(message.shortName);
+        /* string country_code = 6; */
+        if (message.countryCode !== "")
+            writer.tag(6, WireType.LengthDelimited).string(message.countryCode);
+        /* int64 founded_year = 7; */
+        if (message.foundedYear !== 0n)
+            writer.tag(7, WireType.Varint).int64(message.foundedYear);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
