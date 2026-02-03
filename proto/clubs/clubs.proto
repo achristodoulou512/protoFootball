@@ -5,7 +5,7 @@ package clubs;
 option go_package = "github.com/aeonpaymenttech/protoFootball/clubs";
 
 service ClubService {
-    rpc GetClub (ClubRequest) returns (ActionResponse);
+    rpc AddClub (ClubRequest) returns (ActionResponse);
 }
 
 message ClubRequest {

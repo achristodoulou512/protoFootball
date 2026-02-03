@@ -12,9 +12,9 @@ import type { RpcOptions } from "@protobuf-ts/runtime-rpc";
  */
 export interface IClubServiceClient {
     /**
-     * @generated from protobuf rpc: GetClub(clubs.ClubRequest) returns (clubs.ActionResponse);
+     * @generated from protobuf rpc: AddClub(clubs.ClubRequest) returns (clubs.ActionResponse);
      */
-    getClub(input: ClubRequest, options?: RpcOptions): UnaryCall<ClubRequest, ActionResponse>;
+    addClub(input: ClubRequest, options?: RpcOptions): UnaryCall<ClubRequest, ActionResponse>;
 }
 /**
  * @generated from protobuf service clubs.ClubService
@@ -26,7 +26,7 @@ export declare class ClubServiceClient implements IClubServiceClient, ServiceInf
     options: any;
     constructor(_transport: RpcTransport);
     /**
-     * @generated from protobuf rpc: GetClub(clubs.ClubRequest) returns (clubs.ActionResponse);
+     * @generated from protobuf rpc: AddClub(clubs.ClubRequest) returns (clubs.ActionResponse);
      */
-    getClub(input: ClubRequest, options?: RpcOptions): UnaryCall<ClubRequest, ActionResponse>;
+    addClub(input: ClubRequest, options?: RpcOptions): UnaryCall<ClubRequest, ActionResponse>;
 }

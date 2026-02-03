@@ -14,9 +14,9 @@ export class ClubServiceClient {
         this.options = ClubService.options;
     }
     /**
-     * @generated from protobuf rpc: GetClub(clubs.ClubRequest) returns (clubs.ActionResponse);
+     * @generated from protobuf rpc: AddClub(clubs.ClubRequest) returns (clubs.ActionResponse);
      */
-    getClub(input, options) {
+    addClub(input, options) {
         const method = this.methods[0], opt = this._transport.mergeOptions(options);
         return stackIntercept("unary", this._transport, method, opt, input);
     }

@@ -187,5 +187,5 @@ export const ActionResponse = new ActionResponse$Type();
  * @generated ServiceType for protobuf service clubs.ClubService
  */
 export const ClubService = new ServiceType("clubs.ClubService", [
-    { name: "GetClub", options: {}, I: ClubRequest, O: ActionResponse }
+    { name: "AddClub", options: {}, I: ClubRequest, O: ActionResponse }
 ]);
