@@ -1,0 +1,20 @@
+version: v2
+clean: true
+managed:
+  enabled: true
+plugins:
+  - remote: buf.build/grpc/go
+    out: gen/go
+    opt:
+      - paths=source_relative
+      - require_unimplemented_servers=false
+  - remote: buf.build/protocolbuffers/go
+    out: gen/go
+    opt:
+      - paths=source_relative
+  - remote: buf.build/community/timostamm-protobuf-ts:v2.9.6
+    out: gen/ts
+    opt:
+      - output_javascript
+inputs:
+  - directory: proto
