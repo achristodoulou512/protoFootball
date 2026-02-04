@@ -28,6 +28,8 @@ type ClubRequest struct {
 	ShortName     string                 `protobuf:"bytes,3,opt,name=short_name,json=shortName,proto3" json:"short_name,omitempty"`
 	CountryCode   string                 `protobuf:"bytes,4,opt,name=country_code,json=countryCode,proto3" json:"country_code,omitempty"`
 	FoundedYear   int64                  `protobuf:"varint,5,opt,name=founded_year,json=foundedYear,proto3" json:"founded_year,omitempty"`
+	CreatedBy     string                 `protobuf:"bytes,6,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
+	UpdatedBy     string                 `protobuf:"bytes,7,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -97,6 +99,20 @@ func (x *ClubRequest) GetFoundedYear() int64 {
 	return 0
 }
 
+func (x *ClubRequest) GetCreatedBy() string {
+	if x != nil {
+		return x.CreatedBy
+	}
+	return ""
+}
+
+func (x *ClubRequest) GetUpdatedBy() string {
+	if x != nil {
+		return x.UpdatedBy
+	}
+	return ""
+}
+
 type ActionResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Status        uint32                 `protobuf:"varint,1,opt,name=status,proto3" json:"status,omitempty"`
@@ -106,6 +122,8 @@ type ActionResponse struct {
 	ShortName     string                 `protobuf:"bytes,5,opt,name=short_name,json=shortName,proto3" json:"short_name,omitempty"`
 	CountryCode   string                 `protobuf:"bytes,6,opt,name=country_code,json=countryCode,proto3" json:"country_code,omitempty"`
 	FoundedYear   int64                  `protobuf:"varint,7,opt,name=founded_year,json=foundedYear,proto3" json:"founded_year,omitempty"`
+	CreatedBy     string                 `protobuf:"bytes,8,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
+	UpdatedBy     string                 `protobuf:"bytes,9,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -189,18 +207,36 @@ func (x *ActionResponse) GetFoundedYear() int64 {
 	return 0
 }
 
+func (x *ActionResponse) GetCreatedBy() string {
+	if x != nil {
+		return x.CreatedBy
+	}
+	return ""
+}
+
+func (x *ActionResponse) GetUpdatedBy() string {
+	if x != nil {
+		return x.UpdatedBy
+	}
+	return ""
+}
+
 var File_clubs_clubs_proto protoreflect.FileDescriptor
 
 const file_clubs_clubs_proto_rawDesc = "" +
 	"\n" +
-	"\x11clubs/clubs.proto\x12\x05clubs\"\x9f\x01\n" +
+	"\x11clubs/clubs.proto\x12\x05clubs\"\xdd\x01\n" +
 	"\vClubRequest\x12\x17\n" +
 	"\aclub_id\x18\x01 \x01(\rR\x06clubId\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1d\n" +
 	"\n" +
 	"short_name\x18\x03 \x01(\tR\tshortName\x12!\n" +
 	"\fcountry_code\x18\x04 \x01(\tR\vcountryCode\x12!\n" +
-	"\ffounded_year\x18\x05 \x01(\x03R\vfoundedYear\"\xd4\x01\n" +
+	"\ffounded_year\x18\x05 \x01(\x03R\vfoundedYear\x12\x1d\n" +
+	"\n" +
+	"created_by\x18\x06 \x01(\tR\tcreatedBy\x12\x1d\n" +
+	"\n" +
+	"updated_by\x18\a \x01(\tR\tupdatedBy\"\x92\x02\n" +
 	"\x0eActionResponse\x12\x16\n" +
 	"\x06status\x18\x01 \x01(\rR\x06status\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\x12\x17\n" +
@@ -209,7 +245,11 @@ const file_clubs_clubs_proto_rawDesc = "" +
 	"\n" +
 	"short_name\x18\x05 \x01(\tR\tshortName\x12!\n" +
 	"\fcountry_code\x18\x06 \x01(\tR\vcountryCode\x12!\n" +
-	"\ffounded_year\x18\a \x01(\x03R\vfoundedYear2C\n" +
+	"\ffounded_year\x18\a \x01(\x03R\vfoundedYear\x12\x1d\n" +
+	"\n" +
+	"created_by\x18\b \x01(\tR\tcreatedBy\x12\x1d\n" +
+	"\n" +
+	"updated_by\x18\t \x01(\tR\tupdatedBy2C\n" +
 	"\vClubService\x124\n" +
 	"\aAddClub\x12\x12.clubs.ClubRequest\x1a\x15.clubs.ActionResponseB{\n" +
 	"\tcom.clubsB\n" +

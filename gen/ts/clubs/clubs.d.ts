@@ -31,6 +31,14 @@ export interface ClubRequest {
      * @generated from protobuf field: int64 founded_year = 5;
      */
     foundedYear: bigint;
+    /**
+     * @generated from protobuf field: string created_by = 6;
+     */
+    createdBy: string;
+    /**
+     * @generated from protobuf field: string updated_by = 7;
+     */
+    updatedBy: string;
 }
 /**
  * @generated from protobuf message clubs.ActionResponse
@@ -64,6 +72,14 @@ export interface ActionResponse {
      * @generated from protobuf field: int64 founded_year = 7;
      */
     foundedYear: bigint;
+    /**
+     * @generated from protobuf field: string created_by = 8;
+     */
+    createdBy: string;
+    /**
+     * @generated from protobuf field: string updated_by = 9;
+     */
+    updatedBy: string;
 }
 declare class ClubRequest$Type extends MessageType<ClubRequest> {
     constructor();

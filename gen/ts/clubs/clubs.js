@@ -17,7 +17,9 @@ class ClubRequest$Type extends MessageType {
             { no: 2, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 3, name: "short_name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 4, name: "country_code", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 5, name: "founded_year", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 5, name: "founded_year", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 6, name: "created_by", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 7, name: "updated_by", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
         ]);
     }
     create(value) {
@@ -27,6 +29,8 @@ class ClubRequest$Type extends MessageType {
         message.shortName = "";
         message.countryCode = "";
         message.foundedYear = 0n;
+        message.createdBy = "";
+        message.updatedBy = "";
         if (value !== undefined)
             reflectionMergePartial(this, message, value);
         return message;
@@ -50,6 +54,12 @@ class ClubRequest$Type extends MessageType {
                     break;
                 case /* int64 founded_year */ 5:
                     message.foundedYear = reader.int64().toBigInt();
+                    break;
+                case /* string created_by */ 6:
+                    message.createdBy = reader.string();
+                    break;
+                case /* string updated_by */ 7:
+                    message.updatedBy = reader.string();
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -78,6 +88,12 @@ class ClubRequest$Type extends MessageType {
         /* int64 founded_year = 5; */
         if (message.foundedYear !== 0n)
             writer.tag(5, WireType.Varint).int64(message.foundedYear);
+        /* string created_by = 6; */
+        if (message.createdBy !== "")
+            writer.tag(6, WireType.LengthDelimited).string(message.createdBy);
+        /* string updated_by = 7; */
+        if (message.updatedBy !== "")
+            writer.tag(7, WireType.LengthDelimited).string(message.updatedBy);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -98,7 +114,9 @@ class ActionResponse$Type extends MessageType {
             { no: 4, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 5, name: "short_name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 6, name: "country_code", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 7, name: "founded_year", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+            { no: 7, name: "founded_year", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 8, name: "created_by", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 9, name: "updated_by", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
         ]);
     }
     create(value) {
@@ -110,6 +128,8 @@ class ActionResponse$Type extends MessageType {
         message.shortName = "";
         message.countryCode = "";
         message.foundedYear = 0n;
+        message.createdBy = "";
+        message.updatedBy = "";
         if (value !== undefined)
             reflectionMergePartial(this, message, value);
         return message;
@@ -139,6 +159,12 @@ class ActionResponse$Type extends MessageType {
                     break;
                 case /* int64 founded_year */ 7:
                     message.foundedYear = reader.int64().toBigInt();
+                    break;
+                case /* string created_by */ 8:
+                    message.createdBy = reader.string();
+                    break;
+                case /* string updated_by */ 9:
+                    message.updatedBy = reader.string();
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -173,6 +199,12 @@ class ActionResponse$Type extends MessageType {
         /* int64 founded_year = 7; */
         if (message.foundedYear !== 0n)
             writer.tag(7, WireType.Varint).int64(message.foundedYear);
+        /* string created_by = 8; */
+        if (message.createdBy !== "")
+            writer.tag(8, WireType.LengthDelimited).string(message.createdBy);
+        /* string updated_by = 9; */
+        if (message.updatedBy !== "")
+            writer.tag(9, WireType.LengthDelimited).string(message.updatedBy);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
