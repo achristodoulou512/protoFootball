@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package teams;
+
+option go_package = "github.com/aeonpaymenttech/protoFootball/teams";
+
+service TeamService {
+    rpc AddTeam (TeamRequest) returns (ActionResponse);
+    rpc GetAllTeams (TeamRequest) returns (FetchTeamsResponse);
+    rpc GetTeamsById (TeamRequest) returns (FetchTeamsResponse);
+}
+
+message TeamRequest {
+    string team_id = 1;
+    string club_id = 2;
+    string name = 3;
+    string team_type = 4;
+    string created_by = 5;
+    string updated_by = 6;
+}
+
+message ActionResponse {   
+    uint32 status = 1;
+    string message = 2;
+    uint32 team_id = 3;
+    uint32 club_id = 4;
+    string name = 5;
+    string team_type = 6;
+    string created_by = 7;
+    string updated_by = 8;
+}
+
+message Team {
+    string team_id = 1;
+    string club_id = 2;
+    string name = 3;
+    string team_type = 4;
+    string created_by = 5;
+    string updated_by = 6;
+}
+
+message FetchTeamsResponse {
+    uint32 status = 1;
+    string message = 2;
+    repeated Team teams = 3;
+}
