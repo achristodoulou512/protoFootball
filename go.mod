@@ -1,4 +1,4 @@
-module protoFootball
+module github.com/achristodoulou512/protoFootball
 
 go 1.25.5
 
