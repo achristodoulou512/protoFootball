@@ -19,7 +19,8 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ClubService_AddClub_FullMethodName = "/clubs.ClubService/AddClub"
+	ClubService_AddClub_FullMethodName     = "/clubs.ClubService/AddClub"
+	ClubService_GetAllClubs_FullMethodName = "/clubs.ClubService/GetAllClubs"
 )
 
 // ClubServiceClient is the client API for ClubService service.
@@ -27,6 +28,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ClubServiceClient interface {
 	AddClub(ctx context.Context, in *ClubRequest, opts ...grpc.CallOption) (*ActionResponse, error)
+	GetAllClubs(ctx context.Context, in *ClubRequest, opts ...grpc.CallOption) (*ActionResponse, error)
 }
 
 type clubServiceClient struct {
@@ -47,11 +49,22 @@ func (c *clubServiceClient) AddClub(ctx context.Context, in *ClubRequest, opts .
 	return out, nil
 }
 
+func (c *clubServiceClient) GetAllClubs(ctx context.Context, in *ClubRequest, opts ...grpc.CallOption) (*ActionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ActionResponse)
+	err := c.cc.Invoke(ctx, ClubService_GetAllClubs_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ClubServiceServer is the server API for ClubService service.
 // All implementations should embed UnimplementedClubServiceServer
 // for forward compatibility.
 type ClubServiceServer interface {
 	AddClub(context.Context, *ClubRequest) (*ActionResponse, error)
+	GetAllClubs(context.Context, *ClubRequest) (*ActionResponse, error)
 }
 
 // UnimplementedClubServiceServer should be embedded to have
@@ -63,6 +76,9 @@ type UnimplementedClubServiceServer struct{}
 
 func (UnimplementedClubServiceServer) AddClub(context.Context, *ClubRequest) (*ActionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method AddClub not implemented")
+}
+func (UnimplementedClubServiceServer) GetAllClubs(context.Context, *ClubRequest) (*ActionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAllClubs not implemented")
 }
 func (UnimplementedClubServiceServer) testEmbeddedByValue() {}
 
@@ -102,6 +118,24 @@ func _ClubService_AddClub_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ClubService_GetAllClubs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClubRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ClubServiceServer).GetAllClubs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ClubService_GetAllClubs_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ClubServiceServer).GetAllClubs(ctx, req.(*ClubRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ClubService_ServiceDesc is the grpc.ServiceDesc for ClubService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -112,6 +146,10 @@ var ClubService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "AddClub",
 			Handler:    _ClubService_AddClub_Handler,
+		},
+		{
+			MethodName: "GetAllClubs",
+			Handler:    _ClubService_GetAllClubs_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

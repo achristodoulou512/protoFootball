@@ -249,9 +249,10 @@ const file_clubs_clubs_proto_rawDesc = "" +
 	"\n" +
 	"created_by\x18\b \x01(\tR\tcreatedBy\x12\x1d\n" +
 	"\n" +
-	"updated_by\x18\t \x01(\tR\tupdatedBy2C\n" +
+	"updated_by\x18\t \x01(\tR\tupdatedBy2}\n" +
 	"\vClubService\x124\n" +
-	"\aAddClub\x12\x12.clubs.ClubRequest\x1a\x15.clubs.ActionResponseB{\n" +
+	"\aAddClub\x12\x12.clubs.ClubRequest\x1a\x15.clubs.ActionResponse\x128\n" +
+	"\vGetAllClubs\x12\x12.clubs.ClubRequest\x1a\x15.clubs.ActionResponseB{\n" +
 	"\tcom.clubsB\n" +
 	"ClubsProtoP\x01Z.github.com/aeonpaymenttech/protoFootball/clubs\xa2\x02\x03CXX\xaa\x02\x05Clubs\xca\x02\x05Clubs\xe2\x02\x11Clubs\\GPBMetadata\xea\x02\x05Clubsb\x06proto3"
 
@@ -274,9 +275,11 @@ var file_clubs_clubs_proto_goTypes = []any{
 }
 var file_clubs_clubs_proto_depIdxs = []int32{
 	0, // 0: clubs.ClubService.AddClub:input_type -> clubs.ClubRequest
-	1, // 1: clubs.ClubService.AddClub:output_type -> clubs.ActionResponse
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
+	0, // 1: clubs.ClubService.GetAllClubs:input_type -> clubs.ClubRequest
+	1, // 2: clubs.ClubService.AddClub:output_type -> clubs.ActionResponse
+	1, // 3: clubs.ClubService.GetAllClubs:output_type -> clubs.ActionResponse
+	2, // [2:4] is the sub-list for method output_type
+	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name

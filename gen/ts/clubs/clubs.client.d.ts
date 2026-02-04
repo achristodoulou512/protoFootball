@@ -15,6 +15,10 @@ export interface IClubServiceClient {
      * @generated from protobuf rpc: AddClub(clubs.ClubRequest) returns (clubs.ActionResponse);
      */
     addClub(input: ClubRequest, options?: RpcOptions): UnaryCall<ClubRequest, ActionResponse>;
+    /**
+     * @generated from protobuf rpc: GetAllClubs(clubs.ClubRequest) returns (clubs.ActionResponse);
+     */
+    getAllClubs(input: ClubRequest, options?: RpcOptions): UnaryCall<ClubRequest, ActionResponse>;
 }
 /**
  * @generated from protobuf service clubs.ClubService
@@ -29,4 +33,8 @@ export declare class ClubServiceClient implements IClubServiceClient, ServiceInf
      * @generated from protobuf rpc: AddClub(clubs.ClubRequest) returns (clubs.ActionResponse);
      */
     addClub(input: ClubRequest, options?: RpcOptions): UnaryCall<ClubRequest, ActionResponse>;
+    /**
+     * @generated from protobuf rpc: GetAllClubs(clubs.ClubRequest) returns (clubs.ActionResponse);
+     */
+    getAllClubs(input: ClubRequest, options?: RpcOptions): UnaryCall<ClubRequest, ActionResponse>;
 }

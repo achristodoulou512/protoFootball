@@ -20,4 +20,11 @@ export class ClubServiceClient {
         const method = this.methods[0], opt = this._transport.mergeOptions(options);
         return stackIntercept("unary", this._transport, method, opt, input);
     }
+    /**
+     * @generated from protobuf rpc: GetAllClubs(clubs.ClubRequest) returns (clubs.ActionResponse);
+     */
+    getAllClubs(input, options) {
+        const method = this.methods[1], opt = this._transport.mergeOptions(options);
+        return stackIntercept("unary", this._transport, method, opt, input);
+    }
 }
