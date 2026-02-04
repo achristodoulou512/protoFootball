@@ -21,6 +21,7 @@ const _ = grpc.SupportPackageIsVersion9
 const (
 	PlayerService_AddPlayer_FullMethodName     = "/players.PlayerService/AddPlayer"
 	PlayerService_GetAllPlayers_FullMethodName = "/players.PlayerService/GetAllPlayers"
+	PlayerService_UpdatePlayer_FullMethodName  = "/players.PlayerService/UpdatePlayer"
 )
 
 // PlayerServiceClient is the client API for PlayerService service.
@@ -29,6 +30,7 @@ const (
 type PlayerServiceClient interface {
 	AddPlayer(ctx context.Context, in *PlayerRequest, opts ...grpc.CallOption) (*ActionResponse, error)
 	GetAllPlayers(ctx context.Context, in *PlayerRequest, opts ...grpc.CallOption) (*FetchPlayersResponse, error)
+	UpdatePlayer(ctx context.Context, in *PlayerRequest, opts ...grpc.CallOption) (*FetchPlayersResponse, error)
 }
 
 type playerServiceClient struct {
@@ -59,12 +61,23 @@ func (c *playerServiceClient) GetAllPlayers(ctx context.Context, in *PlayerReque
 	return out, nil
 }
 
+func (c *playerServiceClient) UpdatePlayer(ctx context.Context, in *PlayerRequest, opts ...grpc.CallOption) (*FetchPlayersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FetchPlayersResponse)
+	err := c.cc.Invoke(ctx, PlayerService_UpdatePlayer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // PlayerServiceServer is the server API for PlayerService service.
 // All implementations should embed UnimplementedPlayerServiceServer
 // for forward compatibility.
 type PlayerServiceServer interface {
 	AddPlayer(context.Context, *PlayerRequest) (*ActionResponse, error)
 	GetAllPlayers(context.Context, *PlayerRequest) (*FetchPlayersResponse, error)
+	UpdatePlayer(context.Context, *PlayerRequest) (*FetchPlayersResponse, error)
 }
 
 // UnimplementedPlayerServiceServer should be embedded to have
@@ -79,6 +92,9 @@ func (UnimplementedPlayerServiceServer) AddPlayer(context.Context, *PlayerReques
 }
 func (UnimplementedPlayerServiceServer) GetAllPlayers(context.Context, *PlayerRequest) (*FetchPlayersResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAllPlayers not implemented")
+}
+func (UnimplementedPlayerServiceServer) UpdatePlayer(context.Context, *PlayerRequest) (*FetchPlayersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdatePlayer not implemented")
 }
 func (UnimplementedPlayerServiceServer) testEmbeddedByValue() {}
 
@@ -136,6 +152,24 @@ func _PlayerService_GetAllPlayers_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _PlayerService_UpdatePlayer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PlayerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlayerServiceServer).UpdatePlayer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlayerService_UpdatePlayer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlayerServiceServer).UpdatePlayer(ctx, req.(*PlayerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // PlayerService_ServiceDesc is the grpc.ServiceDesc for PlayerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -150,6 +184,10 @@ var PlayerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAllPlayers",
 			Handler:    _PlayerService_GetAllPlayers_Handler,
+		},
+		{
+			MethodName: "UpdatePlayer",
+			Handler:    _PlayerService_UpdatePlayer_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

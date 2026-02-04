@@ -20,6 +20,10 @@ export interface IPlayerServiceClient {
      * @generated from protobuf rpc: GetAllPlayers(players.PlayerRequest) returns (players.FetchPlayersResponse);
      */
     getAllPlayers(input: PlayerRequest, options?: RpcOptions): UnaryCall<PlayerRequest, FetchPlayersResponse>;
+    /**
+     * @generated from protobuf rpc: UpdatePlayer(players.PlayerRequest) returns (players.FetchPlayersResponse);
+     */
+    updatePlayer(input: PlayerRequest, options?: RpcOptions): UnaryCall<PlayerRequest, FetchPlayersResponse>;
 }
 /**
  * @generated from protobuf service players.PlayerService
@@ -38,4 +42,8 @@ export declare class PlayerServiceClient implements IPlayerServiceClient, Servic
      * @generated from protobuf rpc: GetAllPlayers(players.PlayerRequest) returns (players.FetchPlayersResponse);
      */
     getAllPlayers(input: PlayerRequest, options?: RpcOptions): UnaryCall<PlayerRequest, FetchPlayersResponse>;
+    /**
+     * @generated from protobuf rpc: UpdatePlayer(players.PlayerRequest) returns (players.FetchPlayersResponse);
+     */
+    updatePlayer(input: PlayerRequest, options?: RpcOptions): UnaryCall<PlayerRequest, FetchPlayersResponse>;
 }

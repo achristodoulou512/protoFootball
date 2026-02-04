@@ -27,4 +27,11 @@ export class PlayerServiceClient {
         const method = this.methods[1], opt = this._transport.mergeOptions(options);
         return stackIntercept("unary", this._transport, method, opt, input);
     }
+    /**
+     * @generated from protobuf rpc: UpdatePlayer(players.PlayerRequest) returns (players.FetchPlayersResponse);
+     */
+    updatePlayer(input, options) {
+        const method = this.methods[2], opt = this._transport.mergeOptions(options);
+        return stackIntercept("unary", this._transport, method, opt, input);
+    }
 }

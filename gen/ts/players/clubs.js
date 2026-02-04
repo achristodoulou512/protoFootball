@@ -474,5 +474,6 @@ export const FetchPlayersResponse = new FetchPlayersResponse$Type();
  */
 export const PlayerService = new ServiceType("players.PlayerService", [
     { name: "AddPlayer", options: {}, I: PlayerRequest, O: ActionResponse },
-    { name: "GetAllPlayers", options: {}, I: PlayerRequest, O: FetchPlayersResponse }
+    { name: "GetAllPlayers", options: {}, I: PlayerRequest, O: FetchPlayersResponse },
+    { name: "UpdatePlayer", options: {}, I: PlayerRequest, O: FetchPlayersResponse }
 ]);

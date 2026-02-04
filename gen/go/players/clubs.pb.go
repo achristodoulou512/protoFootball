@@ -527,10 +527,11 @@ const file_players_clubs_proto_rawDesc = "" +
 	"\x14FetchPlayersResponse\x12\x16\n" +
 	"\x06status\x18\x01 \x01(\rR\x06status\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\x12)\n" +
-	"\aplayers\x18\x03 \x03(\v2\x0f.players.PlayerR\aplayers2\x95\x01\n" +
+	"\aplayers\x18\x03 \x03(\v2\x0f.players.PlayerR\aplayers2\xdc\x01\n" +
 	"\rPlayerService\x12<\n" +
 	"\tAddPlayer\x12\x16.players.PlayerRequest\x1a\x17.players.ActionResponse\x12F\n" +
-	"\rGetAllPlayers\x12\x16.players.PlayerRequest\x1a\x1d.players.FetchPlayersResponseB\x87\x01\n" +
+	"\rGetAllPlayers\x12\x16.players.PlayerRequest\x1a\x1d.players.FetchPlayersResponse\x12E\n" +
+	"\fUpdatePlayer\x12\x16.players.PlayerRequest\x1a\x1d.players.FetchPlayersResponseB\x87\x01\n" +
 	"\vcom.playersB\n" +
 	"ClubsProtoP\x01Z0github.com/aeonpaymenttech/protoFootball/players\xa2\x02\x03PXX\xaa\x02\aPlayers\xca\x02\aPlayers\xe2\x02\x13Players\\GPBMetadata\xea\x02\aPlayersb\x06proto3"
 
@@ -557,10 +558,12 @@ var file_players_clubs_proto_depIdxs = []int32{
 	2, // 0: players.FetchPlayersResponse.players:type_name -> players.Player
 	0, // 1: players.PlayerService.AddPlayer:input_type -> players.PlayerRequest
 	0, // 2: players.PlayerService.GetAllPlayers:input_type -> players.PlayerRequest
-	1, // 3: players.PlayerService.AddPlayer:output_type -> players.ActionResponse
-	3, // 4: players.PlayerService.GetAllPlayers:output_type -> players.FetchPlayersResponse
-	3, // [3:5] is the sub-list for method output_type
-	1, // [1:3] is the sub-list for method input_type
+	0, // 3: players.PlayerService.UpdatePlayer:input_type -> players.PlayerRequest
+	1, // 4: players.PlayerService.AddPlayer:output_type -> players.ActionResponse
+	3, // 5: players.PlayerService.GetAllPlayers:output_type -> players.FetchPlayersResponse
+	3, // 6: players.PlayerService.UpdatePlayer:output_type -> players.FetchPlayersResponse
+	4, // [4:7] is the sub-list for method output_type
+	1, // [1:4] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
 	1, // [1:1] is the sub-list for extension extendee
 	0, // [0:1] is the sub-list for field type_name

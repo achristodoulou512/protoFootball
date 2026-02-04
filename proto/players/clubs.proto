@@ -7,6 +7,7 @@ option go_package = "github.com/aeonpaymenttech/protoFootball/players";
 service PlayerService {
     rpc AddPlayer (PlayerRequest) returns (ActionResponse);
     rpc GetAllPlayers (PlayerRequest) returns (FetchPlayersResponse);
+    rpc UpdatePlayer (PlayerRequest) returns (FetchPlayersResponse);
 }
 
 message PlayerRequest {
