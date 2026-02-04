@@ -221,6 +221,158 @@ func (x *ActionResponse) GetUpdatedBy() string {
 	return ""
 }
 
+type Club struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ClubId        string                 `protobuf:"bytes,1,opt,name=club_id,json=clubId,proto3" json:"club_id,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	ShortName     string                 `protobuf:"bytes,3,opt,name=short_name,json=shortName,proto3" json:"short_name,omitempty"`
+	CountryCode   string                 `protobuf:"bytes,4,opt,name=country_code,json=countryCode,proto3" json:"country_code,omitempty"`
+	FoundedYear   int64                  `protobuf:"varint,5,opt,name=founded_year,json=foundedYear,proto3" json:"founded_year,omitempty"`
+	CreatedBy     string                 `protobuf:"bytes,6,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
+	UpdatedBy     string                 `protobuf:"bytes,7,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Club) Reset() {
+	*x = Club{}
+	mi := &file_clubs_clubs_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Club) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Club) ProtoMessage() {}
+
+func (x *Club) ProtoReflect() protoreflect.Message {
+	mi := &file_clubs_clubs_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Club.ProtoReflect.Descriptor instead.
+func (*Club) Descriptor() ([]byte, []int) {
+	return file_clubs_clubs_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *Club) GetClubId() string {
+	if x != nil {
+		return x.ClubId
+	}
+	return ""
+}
+
+func (x *Club) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *Club) GetShortName() string {
+	if x != nil {
+		return x.ShortName
+	}
+	return ""
+}
+
+func (x *Club) GetCountryCode() string {
+	if x != nil {
+		return x.CountryCode
+	}
+	return ""
+}
+
+func (x *Club) GetFoundedYear() int64 {
+	if x != nil {
+		return x.FoundedYear
+	}
+	return 0
+}
+
+func (x *Club) GetCreatedBy() string {
+	if x != nil {
+		return x.CreatedBy
+	}
+	return ""
+}
+
+func (x *Club) GetUpdatedBy() string {
+	if x != nil {
+		return x.UpdatedBy
+	}
+	return ""
+}
+
+type FetchClubsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Status        uint32                 `protobuf:"varint,1,opt,name=status,proto3" json:"status,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	Clubs         []*Club                `protobuf:"bytes,3,rep,name=clubs,proto3" json:"clubs,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FetchClubsResponse) Reset() {
+	*x = FetchClubsResponse{}
+	mi := &file_clubs_clubs_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FetchClubsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FetchClubsResponse) ProtoMessage() {}
+
+func (x *FetchClubsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_clubs_clubs_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FetchClubsResponse.ProtoReflect.Descriptor instead.
+func (*FetchClubsResponse) Descriptor() ([]byte, []int) {
+	return file_clubs_clubs_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *FetchClubsResponse) GetStatus() uint32 {
+	if x != nil {
+		return x.Status
+	}
+	return 0
+}
+
+func (x *FetchClubsResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+func (x *FetchClubsResponse) GetClubs() []*Club {
+	if x != nil {
+		return x.Clubs
+	}
+	return nil
+}
+
 var File_clubs_clubs_proto protoreflect.FileDescriptor
 
 const file_clubs_clubs_proto_rawDesc = "" +
@@ -249,10 +401,25 @@ const file_clubs_clubs_proto_rawDesc = "" +
 	"\n" +
 	"created_by\x18\b \x01(\tR\tcreatedBy\x12\x1d\n" +
 	"\n" +
-	"updated_by\x18\t \x01(\tR\tupdatedBy2}\n" +
+	"updated_by\x18\t \x01(\tR\tupdatedBy\"\xd6\x01\n" +
+	"\x04Club\x12\x17\n" +
+	"\aclub_id\x18\x01 \x01(\tR\x06clubId\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1d\n" +
+	"\n" +
+	"short_name\x18\x03 \x01(\tR\tshortName\x12!\n" +
+	"\fcountry_code\x18\x04 \x01(\tR\vcountryCode\x12!\n" +
+	"\ffounded_year\x18\x05 \x01(\x03R\vfoundedYear\x12\x1d\n" +
+	"\n" +
+	"created_by\x18\x06 \x01(\tR\tcreatedBy\x12\x1d\n" +
+	"\n" +
+	"updated_by\x18\a \x01(\tR\tupdatedBy\"i\n" +
+	"\x12FetchClubsResponse\x12\x16\n" +
+	"\x06status\x18\x01 \x01(\rR\x06status\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\x12!\n" +
+	"\x05clubs\x18\x03 \x03(\v2\v.clubs.ClubR\x05clubs2\x81\x01\n" +
 	"\vClubService\x124\n" +
-	"\aAddClub\x12\x12.clubs.ClubRequest\x1a\x15.clubs.ActionResponse\x128\n" +
-	"\vGetAllClubs\x12\x12.clubs.ClubRequest\x1a\x15.clubs.ActionResponseB{\n" +
+	"\aAddClub\x12\x12.clubs.ClubRequest\x1a\x15.clubs.ActionResponse\x12<\n" +
+	"\vGetAllClubs\x12\x12.clubs.ClubRequest\x1a\x19.clubs.FetchClubsResponseB{\n" +
 	"\tcom.clubsB\n" +
 	"ClubsProtoP\x01Z.github.com/aeonpaymenttech/protoFootball/clubs\xa2\x02\x03CXX\xaa\x02\x05Clubs\xca\x02\x05Clubs\xe2\x02\x11Clubs\\GPBMetadata\xea\x02\x05Clubsb\x06proto3"
 
@@ -268,21 +435,24 @@ func file_clubs_clubs_proto_rawDescGZIP() []byte {
 	return file_clubs_clubs_proto_rawDescData
 }
 
-var file_clubs_clubs_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_clubs_clubs_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_clubs_clubs_proto_goTypes = []any{
-	(*ClubRequest)(nil),    // 0: clubs.ClubRequest
-	(*ActionResponse)(nil), // 1: clubs.ActionResponse
+	(*ClubRequest)(nil),        // 0: clubs.ClubRequest
+	(*ActionResponse)(nil),     // 1: clubs.ActionResponse
+	(*Club)(nil),               // 2: clubs.Club
+	(*FetchClubsResponse)(nil), // 3: clubs.FetchClubsResponse
 }
 var file_clubs_clubs_proto_depIdxs = []int32{
-	0, // 0: clubs.ClubService.AddClub:input_type -> clubs.ClubRequest
-	0, // 1: clubs.ClubService.GetAllClubs:input_type -> clubs.ClubRequest
-	1, // 2: clubs.ClubService.AddClub:output_type -> clubs.ActionResponse
-	1, // 3: clubs.ClubService.GetAllClubs:output_type -> clubs.ActionResponse
-	2, // [2:4] is the sub-list for method output_type
-	0, // [0:2] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	2, // 0: clubs.FetchClubsResponse.clubs:type_name -> clubs.Club
+	0, // 1: clubs.ClubService.AddClub:input_type -> clubs.ClubRequest
+	0, // 2: clubs.ClubService.GetAllClubs:input_type -> clubs.ClubRequest
+	1, // 3: clubs.ClubService.AddClub:output_type -> clubs.ActionResponse
+	3, // 4: clubs.ClubService.GetAllClubs:output_type -> clubs.FetchClubsResponse
+	3, // [3:5] is the sub-list for method output_type
+	1, // [1:3] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_clubs_clubs_proto_init() }
@@ -296,7 +466,7 @@ func file_clubs_clubs_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_clubs_clubs_proto_rawDesc), len(file_clubs_clubs_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

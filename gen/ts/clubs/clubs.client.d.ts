@@ -3,6 +3,7 @@
 // tslint:disable
 import type { RpcTransport } from "@protobuf-ts/runtime-rpc";
 import type { ServiceInfo } from "@protobuf-ts/runtime-rpc";
+import type { FetchClubsResponse } from "./clubs";
 import type { ActionResponse } from "./clubs";
 import type { ClubRequest } from "./clubs";
 import type { UnaryCall } from "@protobuf-ts/runtime-rpc";
@@ -16,9 +17,9 @@ export interface IClubServiceClient {
      */
     addClub(input: ClubRequest, options?: RpcOptions): UnaryCall<ClubRequest, ActionResponse>;
     /**
-     * @generated from protobuf rpc: GetAllClubs(clubs.ClubRequest) returns (clubs.ActionResponse);
+     * @generated from protobuf rpc: GetAllClubs(clubs.ClubRequest) returns (clubs.FetchClubsResponse);
      */
-    getAllClubs(input: ClubRequest, options?: RpcOptions): UnaryCall<ClubRequest, ActionResponse>;
+    getAllClubs(input: ClubRequest, options?: RpcOptions): UnaryCall<ClubRequest, FetchClubsResponse>;
 }
 /**
  * @generated from protobuf service clubs.ClubService
@@ -34,7 +35,7 @@ export declare class ClubServiceClient implements IClubServiceClient, ServiceInf
      */
     addClub(input: ClubRequest, options?: RpcOptions): UnaryCall<ClubRequest, ActionResponse>;
     /**
-     * @generated from protobuf rpc: GetAllClubs(clubs.ClubRequest) returns (clubs.ActionResponse);
+     * @generated from protobuf rpc: GetAllClubs(clubs.ClubRequest) returns (clubs.FetchClubsResponse);
      */
-    getAllClubs(input: ClubRequest, options?: RpcOptions): UnaryCall<ClubRequest, ActionResponse>;
+    getAllClubs(input: ClubRequest, options?: RpcOptions): UnaryCall<ClubRequest, FetchClubsResponse>;
 }

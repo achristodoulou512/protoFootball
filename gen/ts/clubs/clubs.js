@@ -215,10 +215,168 @@ class ActionResponse$Type extends MessageType {
  * @generated MessageType for protobuf message clubs.ActionResponse
  */
 export const ActionResponse = new ActionResponse$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class Club$Type extends MessageType {
+    constructor() {
+        super("clubs.Club", [
+            { no: 1, name: "club_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 3, name: "short_name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 4, name: "country_code", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 5, name: "founded_year", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 6, name: "created_by", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 7, name: "updated_by", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
+        ]);
+    }
+    create(value) {
+        const message = globalThis.Object.create((this.messagePrototype));
+        message.clubId = "";
+        message.name = "";
+        message.shortName = "";
+        message.countryCode = "";
+        message.foundedYear = 0n;
+        message.createdBy = "";
+        message.updatedBy = "";
+        if (value !== undefined)
+            reflectionMergePartial(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader, length, options, target) {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string club_id */ 1:
+                    message.clubId = reader.string();
+                    break;
+                case /* string name */ 2:
+                    message.name = reader.string();
+                    break;
+                case /* string short_name */ 3:
+                    message.shortName = reader.string();
+                    break;
+                case /* string country_code */ 4:
+                    message.countryCode = reader.string();
+                    break;
+                case /* int64 founded_year */ 5:
+                    message.foundedYear = reader.int64().toBigInt();
+                    break;
+                case /* string created_by */ 6:
+                    message.createdBy = reader.string();
+                    break;
+                case /* string updated_by */ 7:
+                    message.updatedBy = reader.string();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message, writer, options) {
+        /* string club_id = 1; */
+        if (message.clubId !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.clubId);
+        /* string name = 2; */
+        if (message.name !== "")
+            writer.tag(2, WireType.LengthDelimited).string(message.name);
+        /* string short_name = 3; */
+        if (message.shortName !== "")
+            writer.tag(3, WireType.LengthDelimited).string(message.shortName);
+        /* string country_code = 4; */
+        if (message.countryCode !== "")
+            writer.tag(4, WireType.LengthDelimited).string(message.countryCode);
+        /* int64 founded_year = 5; */
+        if (message.foundedYear !== 0n)
+            writer.tag(5, WireType.Varint).int64(message.foundedYear);
+        /* string created_by = 6; */
+        if (message.createdBy !== "")
+            writer.tag(6, WireType.LengthDelimited).string(message.createdBy);
+        /* string updated_by = 7; */
+        if (message.updatedBy !== "")
+            writer.tag(7, WireType.LengthDelimited).string(message.updatedBy);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message clubs.Club
+ */
+export const Club = new Club$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class FetchClubsResponse$Type extends MessageType {
+    constructor() {
+        super("clubs.FetchClubsResponse", [
+            { no: 1, name: "status", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
+            { no: 2, name: "message", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 3, name: "clubs", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => Club }
+        ]);
+    }
+    create(value) {
+        const message = globalThis.Object.create((this.messagePrototype));
+        message.status = 0;
+        message.message = "";
+        message.clubs = [];
+        if (value !== undefined)
+            reflectionMergePartial(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader, length, options, target) {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* uint32 status */ 1:
+                    message.status = reader.uint32();
+                    break;
+                case /* string message */ 2:
+                    message.message = reader.string();
+                    break;
+                case /* repeated clubs.Club clubs */ 3:
+                    message.clubs.push(Club.internalBinaryRead(reader, reader.uint32(), options));
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message, writer, options) {
+        /* uint32 status = 1; */
+        if (message.status !== 0)
+            writer.tag(1, WireType.Varint).uint32(message.status);
+        /* string message = 2; */
+        if (message.message !== "")
+            writer.tag(2, WireType.LengthDelimited).string(message.message);
+        /* repeated clubs.Club clubs = 3; */
+        for (let i = 0; i < message.clubs.length; i++)
+            Club.internalBinaryWrite(message.clubs[i], writer.tag(3, WireType.LengthDelimited).fork(), options).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message clubs.FetchClubsResponse
+ */
+export const FetchClubsResponse = new FetchClubsResponse$Type();
 /**
  * @generated ServiceType for protobuf service clubs.ClubService
  */
 export const ClubService = new ServiceType("clubs.ClubService", [
     { name: "AddClub", options: {}, I: ClubRequest, O: ActionResponse },
-    { name: "GetAllClubs", options: {}, I: ClubRequest, O: ActionResponse }
+    { name: "GetAllClubs", options: {}, I: ClubRequest, O: FetchClubsResponse }
 ]);

@@ -81,6 +81,56 @@ export interface ActionResponse {
      */
     updatedBy: string;
 }
+/**
+ * @generated from protobuf message clubs.Club
+ */
+export interface Club {
+    /**
+     * @generated from protobuf field: string club_id = 1;
+     */
+    clubId: string;
+    /**
+     * @generated from protobuf field: string name = 2;
+     */
+    name: string;
+    /**
+     * @generated from protobuf field: string short_name = 3;
+     */
+    shortName: string;
+    /**
+     * @generated from protobuf field: string country_code = 4;
+     */
+    countryCode: string;
+    /**
+     * @generated from protobuf field: int64 founded_year = 5;
+     */
+    foundedYear: bigint;
+    /**
+     * @generated from protobuf field: string created_by = 6;
+     */
+    createdBy: string;
+    /**
+     * @generated from protobuf field: string updated_by = 7;
+     */
+    updatedBy: string;
+}
+/**
+ * @generated from protobuf message clubs.FetchClubsResponse
+ */
+export interface FetchClubsResponse {
+    /**
+     * @generated from protobuf field: uint32 status = 1;
+     */
+    status: number;
+    /**
+     * @generated from protobuf field: string message = 2;
+     */
+    message: string;
+    /**
+     * @generated from protobuf field: repeated clubs.Club clubs = 3;
+     */
+    clubs: Club[];
+}
 declare class ClubRequest$Type extends MessageType<ClubRequest> {
     constructor();
     create(value?: PartialMessage<ClubRequest>): ClubRequest;
@@ -101,6 +151,26 @@ declare class ActionResponse$Type extends MessageType<ActionResponse> {
  * @generated MessageType for protobuf message clubs.ActionResponse
  */
 export declare const ActionResponse: ActionResponse$Type;
+declare class Club$Type extends MessageType<Club> {
+    constructor();
+    create(value?: PartialMessage<Club>): Club;
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Club): Club;
+    internalBinaryWrite(message: Club, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter;
+}
+/**
+ * @generated MessageType for protobuf message clubs.Club
+ */
+export declare const Club: Club$Type;
+declare class FetchClubsResponse$Type extends MessageType<FetchClubsResponse> {
+    constructor();
+    create(value?: PartialMessage<FetchClubsResponse>): FetchClubsResponse;
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: FetchClubsResponse): FetchClubsResponse;
+    internalBinaryWrite(message: FetchClubsResponse, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter;
+}
+/**
+ * @generated MessageType for protobuf message clubs.FetchClubsResponse
+ */
+export declare const FetchClubsResponse: FetchClubsResponse$Type;
 /**
  * @generated ServiceType for protobuf service clubs.ClubService
  */

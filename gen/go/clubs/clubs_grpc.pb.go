@@ -28,7 +28,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ClubServiceClient interface {
 	AddClub(ctx context.Context, in *ClubRequest, opts ...grpc.CallOption) (*ActionResponse, error)
-	GetAllClubs(ctx context.Context, in *ClubRequest, opts ...grpc.CallOption) (*ActionResponse, error)
+	GetAllClubs(ctx context.Context, in *ClubRequest, opts ...grpc.CallOption) (*FetchClubsResponse, error)
 }
 
 type clubServiceClient struct {
@@ -49,9 +49,9 @@ func (c *clubServiceClient) AddClub(ctx context.Context, in *ClubRequest, opts .
 	return out, nil
 }
 
-func (c *clubServiceClient) GetAllClubs(ctx context.Context, in *ClubRequest, opts ...grpc.CallOption) (*ActionResponse, error) {
+func (c *clubServiceClient) GetAllClubs(ctx context.Context, in *ClubRequest, opts ...grpc.CallOption) (*FetchClubsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ActionResponse)
+	out := new(FetchClubsResponse)
 	err := c.cc.Invoke(ctx, ClubService_GetAllClubs_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -64,7 +64,7 @@ func (c *clubServiceClient) GetAllClubs(ctx context.Context, in *ClubRequest, op
 // for forward compatibility.
 type ClubServiceServer interface {
 	AddClub(context.Context, *ClubRequest) (*ActionResponse, error)
-	GetAllClubs(context.Context, *ClubRequest) (*ActionResponse, error)
+	GetAllClubs(context.Context, *ClubRequest) (*FetchClubsResponse, error)
 }
 
 // UnimplementedClubServiceServer should be embedded to have
@@ -77,7 +77,7 @@ type UnimplementedClubServiceServer struct{}
 func (UnimplementedClubServiceServer) AddClub(context.Context, *ClubRequest) (*ActionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method AddClub not implemented")
 }
-func (UnimplementedClubServiceServer) GetAllClubs(context.Context, *ClubRequest) (*ActionResponse, error) {
+func (UnimplementedClubServiceServer) GetAllClubs(context.Context, *ClubRequest) (*FetchClubsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAllClubs not implemented")
 }
 func (UnimplementedClubServiceServer) testEmbeddedByValue() {}
