@@ -23,7 +23,7 @@ const (
 
 type ClubRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	ClubId        uint32                 `protobuf:"varint,1,opt,name=club_id,json=clubId,proto3" json:"club_id,omitempty"`
+	ClubId        string                 `protobuf:"bytes,1,opt,name=club_id,json=clubId,proto3" json:"club_id,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	ShortName     string                 `protobuf:"bytes,3,opt,name=short_name,json=shortName,proto3" json:"short_name,omitempty"`
 	CountryCode   string                 `protobuf:"bytes,4,opt,name=country_code,json=countryCode,proto3" json:"country_code,omitempty"`
@@ -64,11 +64,11 @@ func (*ClubRequest) Descriptor() ([]byte, []int) {
 	return file_clubs_clubs_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *ClubRequest) GetClubId() uint32 {
+func (x *ClubRequest) GetClubId() string {
 	if x != nil {
 		return x.ClubId
 	}
-	return 0
+	return ""
 }
 
 func (x *ClubRequest) GetName() string {
@@ -379,7 +379,7 @@ const file_clubs_clubs_proto_rawDesc = "" +
 	"\n" +
 	"\x11clubs/clubs.proto\x12\x05clubs\"\xdd\x01\n" +
 	"\vClubRequest\x12\x17\n" +
-	"\aclub_id\x18\x01 \x01(\rR\x06clubId\x12\x12\n" +
+	"\aclub_id\x18\x01 \x01(\tR\x06clubId\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1d\n" +
 	"\n" +
 	"short_name\x18\x03 \x01(\tR\tshortName\x12!\n" +

@@ -11,7 +11,7 @@ service ClubService {
 }
 
 message ClubRequest {
-    uint32 club_id = 1;
+    string club_id = 1;
     string name = 2;
     string short_name = 3;
     string country_code = 4;

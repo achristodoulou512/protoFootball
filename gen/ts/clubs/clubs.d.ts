@@ -12,9 +12,9 @@ import { MessageType } from "@protobuf-ts/runtime";
  */
 export interface ClubRequest {
     /**
-     * @generated from protobuf field: uint32 club_id = 1;
+     * @generated from protobuf field: string club_id = 1;
      */
-    clubId: number;
+    clubId: string;
     /**
      * @generated from protobuf field: string name = 2;
      */

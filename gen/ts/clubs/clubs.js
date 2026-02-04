@@ -13,7 +13,7 @@ import { MessageType } from "@protobuf-ts/runtime";
 class ClubRequest$Type extends MessageType {
     constructor() {
         super("clubs.ClubRequest", [
-            { no: 1, name: "club_id", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
+            { no: 1, name: "club_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 2, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 3, name: "short_name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 4, name: "country_code", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
@@ -24,7 +24,7 @@ class ClubRequest$Type extends MessageType {
     }
     create(value) {
         const message = globalThis.Object.create((this.messagePrototype));
-        message.clubId = 0;
+        message.clubId = "";
         message.name = "";
         message.shortName = "";
         message.countryCode = "";
@@ -40,8 +40,8 @@ class ClubRequest$Type extends MessageType {
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
-                case /* uint32 club_id */ 1:
-                    message.clubId = reader.uint32();
+                case /* string club_id */ 1:
+                    message.clubId = reader.string();
                     break;
                 case /* string name */ 2:
                     message.name = reader.string();
@@ -73,9 +73,9 @@ class ClubRequest$Type extends MessageType {
         return message;
     }
     internalBinaryWrite(message, writer, options) {
-        /* uint32 club_id = 1; */
-        if (message.clubId !== 0)
-            writer.tag(1, WireType.Varint).uint32(message.clubId);
+        /* string club_id = 1; */
+        if (message.clubId !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.clubId);
         /* string name = 2; */
         if (message.name !== "")
             writer.tag(2, WireType.LengthDelimited).string(message.name);
