@@ -378,5 +378,6 @@ export const FetchClubsResponse = new FetchClubsResponse$Type();
  */
 export const ClubService = new ServiceType("clubs.ClubService", [
     { name: "AddClub", options: {}, I: ClubRequest, O: ActionResponse },
-    { name: "GetAllClubs", options: {}, I: ClubRequest, O: FetchClubsResponse }
+    { name: "GetAllClubs", options: {}, I: ClubRequest, O: FetchClubsResponse },
+    { name: "GetClubById", options: {}, I: ClubRequest, O: FetchClubsResponse }
 ]);

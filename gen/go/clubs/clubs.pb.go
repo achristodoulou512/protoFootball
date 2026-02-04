@@ -416,10 +416,11 @@ const file_clubs_clubs_proto_rawDesc = "" +
 	"\x12FetchClubsResponse\x12\x16\n" +
 	"\x06status\x18\x01 \x01(\rR\x06status\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\x12!\n" +
-	"\x05clubs\x18\x03 \x03(\v2\v.clubs.ClubR\x05clubs2\x81\x01\n" +
+	"\x05clubs\x18\x03 \x03(\v2\v.clubs.ClubR\x05clubs2\xbf\x01\n" +
 	"\vClubService\x124\n" +
 	"\aAddClub\x12\x12.clubs.ClubRequest\x1a\x15.clubs.ActionResponse\x12<\n" +
-	"\vGetAllClubs\x12\x12.clubs.ClubRequest\x1a\x19.clubs.FetchClubsResponseB{\n" +
+	"\vGetAllClubs\x12\x12.clubs.ClubRequest\x1a\x19.clubs.FetchClubsResponse\x12<\n" +
+	"\vGetClubById\x12\x12.clubs.ClubRequest\x1a\x19.clubs.FetchClubsResponseB{\n" +
 	"\tcom.clubsB\n" +
 	"ClubsProtoP\x01Z.github.com/aeonpaymenttech/protoFootball/clubs\xa2\x02\x03CXX\xaa\x02\x05Clubs\xca\x02\x05Clubs\xe2\x02\x11Clubs\\GPBMetadata\xea\x02\x05Clubsb\x06proto3"
 
@@ -446,10 +447,12 @@ var file_clubs_clubs_proto_depIdxs = []int32{
 	2, // 0: clubs.FetchClubsResponse.clubs:type_name -> clubs.Club
 	0, // 1: clubs.ClubService.AddClub:input_type -> clubs.ClubRequest
 	0, // 2: clubs.ClubService.GetAllClubs:input_type -> clubs.ClubRequest
-	1, // 3: clubs.ClubService.AddClub:output_type -> clubs.ActionResponse
-	3, // 4: clubs.ClubService.GetAllClubs:output_type -> clubs.FetchClubsResponse
-	3, // [3:5] is the sub-list for method output_type
-	1, // [1:3] is the sub-list for method input_type
+	0, // 3: clubs.ClubService.GetClubById:input_type -> clubs.ClubRequest
+	1, // 4: clubs.ClubService.AddClub:output_type -> clubs.ActionResponse
+	3, // 5: clubs.ClubService.GetAllClubs:output_type -> clubs.FetchClubsResponse
+	3, // 6: clubs.ClubService.GetClubById:output_type -> clubs.FetchClubsResponse
+	4, // [4:7] is the sub-list for method output_type
+	1, // [1:4] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
 	1, // [1:1] is the sub-list for extension extendee
 	0, // [0:1] is the sub-list for field type_name
