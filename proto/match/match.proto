@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package match;
+
+option go_package = "github.com/aeonpaymenttech/protoFootball/match";
+
+service MatchService {
+    rpc AddMatch (MatchRequest) returns (ActionResponse);
+    rpc GetAllMatches (MatchRequest) returns (FetchMatchesResponse);
+}
+
+message MatchRequest {
+    string match_id = 1;
+    string competition_id = 2;
+    string home_team_id = 3;
+    string away_team_id = 4;
+    string stadium_id = 5;
+    string kickoff_at = 6;
+    string match_status = 7;
+    string home_score = 8;
+    string away_score = 9;
+    string created_by = 10;
+    string updated_by = 11;
+}
+
+message ActionResponse {   
+    uint32 status = 1;
+    string message = 2;
+    uint32 match_id = 3;
+    uint32 competition_id = 4;
+    uint32 home_team_id = 5;
+    uint32 away_team_id = 6;
+    uint32 stadium_id = 7;
+    int64 kickoff_at = 8;
+    string match_status = 9;
+    int64 home_score = 10;
+    int64 away_score = 11;
+    string created_by = 12;
+    string updated_by = 13;
+}
+
+message Match {
+   string match_id = 1;
+   string competition_id = 2;
+   string home_team_id = 3;
+   string away_team_id = 4;
+   string stadium_id = 5; 
+   string kickoff_at = 6;
+   string match_status = 7;
+   string home_score = 8;
+   string away_score = 9;
+   string created_by = 10;
+   string updated_by = 11;
+}
+
+message FetchMatchesResponse {
+    uint32 status = 1;
+    string message = 2;
+    repeated Match matches = 3;
+}
