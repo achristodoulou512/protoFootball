@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package competitionTeams;
+
+option go_package = "github.com/aeonpaymenttech/protoFootball/competitionTeams";
+
+service CompetitionTeamsService {
+    rpc AddCompetitionTeams (CompetitionTeamsRequest) returns (ActionResponse);
+}
+
+message CompetitionTeamsRequest {
+    string competition_team_id = 1;
+    string competition_id = 2;
+    string team_id = 3;
+    string group_code = 4;
+    string created_by = 5;
+    string updated_by = 6;
+}
+
+message ActionResponse {   
+    uint32 status = 1;
+    string message = 2;
+    uint32 competition_team_id = 3;
+    uint32 competition_id = 4;
+    string team_id = 5;
+    string group_code = 6;
+    string created_by = 7;
+    string updated_by = 8;
+}
