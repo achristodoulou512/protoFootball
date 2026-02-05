@@ -20,8 +20,8 @@ class MatchRequest$Type extends MessageType {
             { no: 5, name: "stadium_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 6, name: "kickoff_at", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 7, name: "match_status", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 8, name: "home_score", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 9, name: "away_score", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 8, name: "home_score", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
+            { no: 9, name: "away_score", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
             { no: 10, name: "created_by", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 11, name: "updated_by", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
         ]);
@@ -35,8 +35,8 @@ class MatchRequest$Type extends MessageType {
         message.stadiumId = "";
         message.kickoffAt = "";
         message.matchStatus = "";
-        message.homeScore = "";
-        message.awayScore = "";
+        message.homeScore = 0;
+        message.awayScore = 0;
         message.createdBy = "";
         message.updatedBy = "";
         if (value !== undefined)
@@ -69,11 +69,11 @@ class MatchRequest$Type extends MessageType {
                 case /* string match_status */ 7:
                     message.matchStatus = reader.string();
                     break;
-                case /* string home_score */ 8:
-                    message.homeScore = reader.string();
+                case /* uint32 home_score */ 8:
+                    message.homeScore = reader.uint32();
                     break;
-                case /* string away_score */ 9:
-                    message.awayScore = reader.string();
+                case /* uint32 away_score */ 9:
+                    message.awayScore = reader.uint32();
                     break;
                 case /* string created_by */ 10:
                     message.createdBy = reader.string();
@@ -114,12 +114,12 @@ class MatchRequest$Type extends MessageType {
         /* string match_status = 7; */
         if (message.matchStatus !== "")
             writer.tag(7, WireType.LengthDelimited).string(message.matchStatus);
-        /* string home_score = 8; */
-        if (message.homeScore !== "")
-            writer.tag(8, WireType.LengthDelimited).string(message.homeScore);
-        /* string away_score = 9; */
-        if (message.awayScore !== "")
-            writer.tag(9, WireType.LengthDelimited).string(message.awayScore);
+        /* uint32 home_score = 8; */
+        if (message.homeScore !== 0)
+            writer.tag(8, WireType.Varint).uint32(message.homeScore);
+        /* uint32 away_score = 9; */
+        if (message.awayScore !== 0)
+            writer.tag(9, WireType.Varint).uint32(message.awayScore);
         /* string created_by = 10; */
         if (message.createdBy !== "")
             writer.tag(10, WireType.LengthDelimited).string(message.createdBy);

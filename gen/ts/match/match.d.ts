@@ -40,13 +40,13 @@ export interface MatchRequest {
      */
     matchStatus: string;
     /**
-     * @generated from protobuf field: string home_score = 8;
+     * @generated from protobuf field: uint32 home_score = 8;
      */
-    homeScore: string;
+    homeScore: number;
     /**
-     * @generated from protobuf field: string away_score = 9;
+     * @generated from protobuf field: uint32 away_score = 9;
      */
-    awayScore: string;
+    awayScore: number;
     /**
      * @generated from protobuf field: string created_by = 10;
      */

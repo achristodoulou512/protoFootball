@@ -30,8 +30,8 @@ type MatchRequest struct {
 	StadiumId     string                 `protobuf:"bytes,5,opt,name=stadium_id,json=stadiumId,proto3" json:"stadium_id,omitempty"`
 	KickoffAt     string                 `protobuf:"bytes,6,opt,name=kickoff_at,json=kickoffAt,proto3" json:"kickoff_at,omitempty"`
 	MatchStatus   string                 `protobuf:"bytes,7,opt,name=match_status,json=matchStatus,proto3" json:"match_status,omitempty"`
-	HomeScore     string                 `protobuf:"bytes,8,opt,name=home_score,json=homeScore,proto3" json:"home_score,omitempty"`
-	AwayScore     string                 `protobuf:"bytes,9,opt,name=away_score,json=awayScore,proto3" json:"away_score,omitempty"`
+	HomeScore     uint32                 `protobuf:"varint,8,opt,name=home_score,json=homeScore,proto3" json:"home_score,omitempty"`
+	AwayScore     uint32                 `protobuf:"varint,9,opt,name=away_score,json=awayScore,proto3" json:"away_score,omitempty"`
 	CreatedBy     string                 `protobuf:"bytes,10,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
 	UpdatedBy     string                 `protobuf:"bytes,11,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -117,18 +117,18 @@ func (x *MatchRequest) GetMatchStatus() string {
 	return ""
 }
 
-func (x *MatchRequest) GetHomeScore() string {
+func (x *MatchRequest) GetHomeScore() uint32 {
 	if x != nil {
 		return x.HomeScore
 	}
-	return ""
+	return 0
 }
 
-func (x *MatchRequest) GetAwayScore() string {
+func (x *MatchRequest) GetAwayScore() uint32 {
 	if x != nil {
 		return x.AwayScore
 	}
-	return ""
+	return 0
 }
 
 func (x *MatchRequest) GetCreatedBy() string {
@@ -487,9 +487,9 @@ const file_match_match_proto_rawDesc = "" +
 	"kickoff_at\x18\x06 \x01(\tR\tkickoffAt\x12!\n" +
 	"\fmatch_status\x18\a \x01(\tR\vmatchStatus\x12\x1d\n" +
 	"\n" +
-	"home_score\x18\b \x01(\tR\thomeScore\x12\x1d\n" +
+	"home_score\x18\b \x01(\rR\thomeScore\x12\x1d\n" +
 	"\n" +
-	"away_score\x18\t \x01(\tR\tawayScore\x12\x1d\n" +
+	"away_score\x18\t \x01(\rR\tawayScore\x12\x1d\n" +
 	"\n" +
 	"created_by\x18\n" +
 	" \x01(\tR\tcreatedBy\x12\x1d\n" +

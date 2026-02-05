@@ -17,8 +17,8 @@ message MatchRequest {
     string stadium_id = 5;
     string kickoff_at = 6;
     string match_status = 7;
-    string home_score = 8;
-    string away_score = 9;
+    uint32 home_score = 8;
+    uint32 away_score = 9;
     string created_by = 10;
     string updated_by = 11;
 }
