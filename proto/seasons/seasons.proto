@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package seasons;
+
+option go_package = "github.com/aeonpaymenttech/protoFootball/seasons";
+
+service SeasonService {
+    rpc AddSeason (SeasonRequest) returns (ActionResponse);
+    rpc GetAllSeasons (SeasonRequest) returns (FetchSeasonsResponse);
+}
+
+message SeasonRequest {
+    string season_id = 1;
+    string name = 2;
+    string competition_type = 3;
+    string country_code = 4;
+    string created_by = 5;
+    string updated_by = 6;
+}
+
+message ActionResponse {   
+    uint32 status = 1;
+    string message = 2;
+    uint32 season_id = 3;
+    string name = 4;
+    string competition_type = 5;
+    string country_code = 6;
+    string created_by = 7;
+    string updated_by = 8;
+}
+
+message Seasons {
+    string season_id = 1;
+    string name = 2;
+    string competition_type = 3;
+    string country_code = 4;
+    string created_by = 5;
+    string updated_by = 6;
+}
+
+message FetchSeasonsResponse {
+    uint32 status = 1;
+    string message = 2;
+    repeated Seasons seasons = 3;
+}
