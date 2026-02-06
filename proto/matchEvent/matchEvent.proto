@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package matchEvent;
+import "google/protobuf/struct.proto";
+
+option go_package = "github.com/aeonpaymenttech/protoFootball/matchEvent";
+
+
+service MatchEventService {
+    rpc AddMatchEvent (MatchEventRequest) returns (ActionResponse);
+    rpc GetAllMatchesEvent (MatchEventRequest) returns (FetchMatchesEventResponse);
+}
+
+message MatchEventRequest {
+    string event_id = 1;
+    string match_id = 2;
+    string team_id = 3;
+    string player_id = 4;
+    string event_type= 5;
+    uint32 minute = 6;
+    uint32 second = 7;
+    google.protobuf.Struct payload = 8;
+    string created_by = 10;
+    string updated_by = 11;
+}
+
+message ActionResponse {   
+    uint32 status = 1;
+    string message = 2;
+    uint32 event_id = 3;
+    uint32 match_id = 4;
+    uint32 team_id = 5;
+    uint32 player_id = 6;
+    string event_type =7;
+    string minute = 8;
+    string second = 9;
+    google.protobuf.Struct payload = 10;
+    string created_by = 11;
+    string updated_by = 12;
+}
+
+message MatchEvent {
+   string event_id = 1;
+   string match_id = 2;
+   string team_id = 3;
+   string player_id = 4;
+   string event_type= 5;
+   string minute = 6;
+   string second = 7;
+   google.protobuf.Struct payload = 8;
+   string created_by = 10;
+   string updated_by = 11;
+}
+
+message FetchMatchesEventResponse {
+    uint32 status = 1;
+    string message = 2;
+    repeated MatchEvent matchEvent = 3;
+}
