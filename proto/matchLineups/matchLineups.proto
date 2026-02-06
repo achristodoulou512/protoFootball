@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package matchLineups;
+
+option go_package = "github.com/aeonpaymenttech/protoFootball/matchLineups";
+
+
+service MatchLineupsService {
+    rpc AddMatchLineups (MatchLineupsRequest) returns (ActionResponse);
+}
+
+message MatchLineupsRequest {
+    string lineup_id = 1;
+    string match_id = 2;
+    string team_id = 3;
+    string player_id = 4;
+    string role = 5;
+    string position = 6;
+    uint32 shirt_number = 7;
+    string created_by = 8;
+    string updated_by = 9;
+}
+
+message ActionResponse {   
+    uint32 status = 1;
+    string message = 2;
+    uint32 lineup_id = 3;
+    uint32 match_id = 4;
+    uint32 team_id = 5;
+    uint32 player_id = 6;
+    string role = 7;
+    string position = 8;
+    uint32 shirt_number = 9;
+    string created_by = 10;
+    string updated_by = 11;
+}
