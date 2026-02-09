@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package sections;
+
+option go_package = "github.com/aeonpaymenttech/protoFootball/sections";
+
+service SectionsService {
+    rpc AddSections (SectionsRequest) returns (ActionResponse);
+}
+
+message SectionsRequest {
+    string section_id = 1;
+    string section_name = 2;
+    string created_by = 5;
+    string updated_by = 6;
+}
+
+message ActionResponse {   
+    uint32 status = 1;
+    string message = 2;
+    string section_id = 3;
+    string section_name = 4;
+    string created_by = 7;
+    string updated_by = 8;
+}

@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package seats;
+
+option go_package = "github.com/aeonpaymenttech/protoFootball/seats";
+
+service SeatsService {
+    rpc AddSeats (SeatsRequest) returns (ActionResponse);
+}
+
+message SeatsRequest {
+    string seat_id = 1;
+    string section_id = 2;
+    string row_label = 3;
+    uint32 seats_number = 4;
+    string created_by = 5;
+    string updated_by = 6;
+}
+
+message ActionResponse {   
+    uint32 status = 1;
+    string message = 2;
+    string seat_id = 3;
+    string section_id = 4;
+    string row_label = 5;
+    uint32 seats_number = 6;
+    string created_by = 7;
+    string updated_by = 8;
+}
