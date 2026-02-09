@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package ticketPasses;
+
+option go_package = "github.com/aeonpaymenttech/protoFootball/ticketPasses";
+
+service TicketPassesService {
+    rpc AddTicketPasses(TicketPassesRequest) returns (ActionResponse);
+}
+
+message TicketPassesRequest {
+    string pass_id = 1;
+    string ticket_id = 2;
+    string issue_to_customer_id = 3;
+    string qr_token_hash = 4;
+    string valid_from = 5;
+    string valid_to = 6;
+    string revoked_at = 7;
+    string created_by = 8;
+    string updated_by = 9;
+}
+
+message ActionResponse {   
+    uint32 status = 1;
+    string message = 2;
+    uint32 pass_id = 3;
+    uint32 ticket_id = 4;
+    uint32 issue_to_customer_id = 5;
+    string qr_token_hash = 6;
+    string valid_to = 7;
+    string valid_from = 8;
+    string revoked_at = 9;
+    string created_by = 10;
+    string updated_by = 11;
+}

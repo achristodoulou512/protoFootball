@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package customers;
+
+option go_package = "github.com/aeonpaymenttech/protoFootball/customers";
+
+service CustomersService {
+    rpc AddCustomers(CustomersRequest) returns (ActionResponse);
+}
+
+message CustomersRequest {
+    string customer_id = 1;
+    string email = 2;
+    string full_name = 3;
+    string phone = 4;
+    string created_by = 5;
+    string updated_by = 6;
+}
+
+message ActionResponse {   
+    uint32 status = 1;
+    string message = 2;
+    uint32 customer_id = 3;
+    string email = 4;
+    string full_name = 5;
+    string phone = 6;
+    string created_by = 7;
+    string updated_by = 8;
+}
