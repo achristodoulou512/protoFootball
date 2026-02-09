@@ -24,7 +24,9 @@ const (
 type SectionsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	SectionId     string                 `protobuf:"bytes,1,opt,name=section_id,json=sectionId,proto3" json:"section_id,omitempty"`
-	SectionName   string                 `protobuf:"bytes,2,opt,name=section_name,json=sectionName,proto3" json:"section_name,omitempty"`
+	StadiumId     string                 `protobuf:"bytes,2,opt,name=stadium_id,json=stadiumId,proto3" json:"stadium_id,omitempty"`
+	Code          string                 `protobuf:"bytes,3,opt,name=code,proto3" json:"code,omitempty"`
+	Name          string                 `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
 	CreatedBy     string                 `protobuf:"bytes,5,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
 	UpdatedBy     string                 `protobuf:"bytes,6,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -68,9 +70,23 @@ func (x *SectionsRequest) GetSectionId() string {
 	return ""
 }
 
-func (x *SectionsRequest) GetSectionName() string {
+func (x *SectionsRequest) GetStadiumId() string {
 	if x != nil {
-		return x.SectionName
+		return x.StadiumId
+	}
+	return ""
+}
+
+func (x *SectionsRequest) GetCode() string {
+	if x != nil {
+		return x.Code
+	}
+	return ""
+}
+
+func (x *SectionsRequest) GetName() string {
+	if x != nil {
+		return x.Name
 	}
 	return ""
 }
@@ -94,7 +110,9 @@ type ActionResponse struct {
 	Status        uint32                 `protobuf:"varint,1,opt,name=status,proto3" json:"status,omitempty"`
 	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
 	SectionId     string                 `protobuf:"bytes,3,opt,name=section_id,json=sectionId,proto3" json:"section_id,omitempty"`
-	SectionName   string                 `protobuf:"bytes,4,opt,name=section_name,json=sectionName,proto3" json:"section_name,omitempty"`
+	StadiumId     string                 `protobuf:"bytes,4,opt,name=stadium_id,json=stadiumId,proto3" json:"stadium_id,omitempty"`
+	Code          string                 `protobuf:"bytes,5,opt,name=code,proto3" json:"code,omitempty"`
+	Name          string                 `protobuf:"bytes,6,opt,name=name,proto3" json:"name,omitempty"`
 	CreatedBy     string                 `protobuf:"bytes,7,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
 	UpdatedBy     string                 `protobuf:"bytes,8,opt,name=updated_by,json=updatedBy,proto3" json:"updated_by,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -152,9 +170,23 @@ func (x *ActionResponse) GetSectionId() string {
 	return ""
 }
 
-func (x *ActionResponse) GetSectionName() string {
+func (x *ActionResponse) GetStadiumId() string {
 	if x != nil {
-		return x.SectionName
+		return x.StadiumId
+	}
+	return ""
+}
+
+func (x *ActionResponse) GetCode() string {
+	if x != nil {
+		return x.Code
+	}
+	return ""
+}
+
+func (x *ActionResponse) GetName() string {
+	if x != nil {
+		return x.Name
 	}
 	return ""
 }
@@ -177,21 +209,27 @@ var File_sections_sections_proto protoreflect.FileDescriptor
 
 const file_sections_sections_proto_rawDesc = "" +
 	"\n" +
-	"\x17sections/sections.proto\x12\bsections\"\x91\x01\n" +
+	"\x17sections/sections.proto\x12\bsections\"\xb5\x01\n" +
 	"\x0fSectionsRequest\x12\x1d\n" +
 	"\n" +
-	"section_id\x18\x01 \x01(\tR\tsectionId\x12!\n" +
-	"\fsection_name\x18\x02 \x01(\tR\vsectionName\x12\x1d\n" +
+	"section_id\x18\x01 \x01(\tR\tsectionId\x12\x1d\n" +
+	"\n" +
+	"stadium_id\x18\x02 \x01(\tR\tstadiumId\x12\x12\n" +
+	"\x04code\x18\x03 \x01(\tR\x04code\x12\x12\n" +
+	"\x04name\x18\x04 \x01(\tR\x04name\x12\x1d\n" +
 	"\n" +
 	"created_by\x18\x05 \x01(\tR\tcreatedBy\x12\x1d\n" +
 	"\n" +
-	"updated_by\x18\x06 \x01(\tR\tupdatedBy\"\xc2\x01\n" +
+	"updated_by\x18\x06 \x01(\tR\tupdatedBy\"\xe6\x01\n" +
 	"\x0eActionResponse\x12\x16\n" +
 	"\x06status\x18\x01 \x01(\rR\x06status\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\x12\x1d\n" +
 	"\n" +
-	"section_id\x18\x03 \x01(\tR\tsectionId\x12!\n" +
-	"\fsection_name\x18\x04 \x01(\tR\vsectionName\x12\x1d\n" +
+	"section_id\x18\x03 \x01(\tR\tsectionId\x12\x1d\n" +
+	"\n" +
+	"stadium_id\x18\x04 \x01(\tR\tstadiumId\x12\x12\n" +
+	"\x04code\x18\x05 \x01(\tR\x04code\x12\x12\n" +
+	"\x04name\x18\x06 \x01(\tR\x04name\x12\x1d\n" +
 	"\n" +
 	"created_by\x18\a \x01(\tR\tcreatedBy\x12\x1d\n" +
 	"\n" +

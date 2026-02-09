@@ -14,7 +14,9 @@ class SectionsRequest$Type extends MessageType {
     constructor() {
         super("sections.SectionsRequest", [
             { no: 1, name: "section_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 2, name: "section_name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "stadium_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 3, name: "code", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 4, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 5, name: "created_by", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 6, name: "updated_by", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
         ]);
@@ -22,7 +24,9 @@ class SectionsRequest$Type extends MessageType {
     create(value) {
         const message = globalThis.Object.create((this.messagePrototype));
         message.sectionId = "";
-        message.sectionName = "";
+        message.stadiumId = "";
+        message.code = "";
+        message.name = "";
         message.createdBy = "";
         message.updatedBy = "";
         if (value !== undefined)
@@ -37,8 +41,14 @@ class SectionsRequest$Type extends MessageType {
                 case /* string section_id */ 1:
                     message.sectionId = reader.string();
                     break;
-                case /* string section_name */ 2:
-                    message.sectionName = reader.string();
+                case /* string stadium_id */ 2:
+                    message.stadiumId = reader.string();
+                    break;
+                case /* string code */ 3:
+                    message.code = reader.string();
+                    break;
+                case /* string name */ 4:
+                    message.name = reader.string();
                     break;
                 case /* string created_by */ 5:
                     message.createdBy = reader.string();
@@ -61,9 +71,15 @@ class SectionsRequest$Type extends MessageType {
         /* string section_id = 1; */
         if (message.sectionId !== "")
             writer.tag(1, WireType.LengthDelimited).string(message.sectionId);
-        /* string section_name = 2; */
-        if (message.sectionName !== "")
-            writer.tag(2, WireType.LengthDelimited).string(message.sectionName);
+        /* string stadium_id = 2; */
+        if (message.stadiumId !== "")
+            writer.tag(2, WireType.LengthDelimited).string(message.stadiumId);
+        /* string code = 3; */
+        if (message.code !== "")
+            writer.tag(3, WireType.LengthDelimited).string(message.code);
+        /* string name = 4; */
+        if (message.name !== "")
+            writer.tag(4, WireType.LengthDelimited).string(message.name);
         /* string created_by = 5; */
         if (message.createdBy !== "")
             writer.tag(5, WireType.LengthDelimited).string(message.createdBy);
@@ -87,7 +103,9 @@ class ActionResponse$Type extends MessageType {
             { no: 1, name: "status", kind: "scalar", T: 13 /*ScalarType.UINT32*/ },
             { no: 2, name: "message", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 3, name: "section_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 4, name: "section_name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 4, name: "stadium_id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 5, name: "code", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 6, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 7, name: "created_by", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 8, name: "updated_by", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
         ]);
@@ -97,7 +115,9 @@ class ActionResponse$Type extends MessageType {
         message.status = 0;
         message.message = "";
         message.sectionId = "";
-        message.sectionName = "";
+        message.stadiumId = "";
+        message.code = "";
+        message.name = "";
         message.createdBy = "";
         message.updatedBy = "";
         if (value !== undefined)
@@ -118,8 +138,14 @@ class ActionResponse$Type extends MessageType {
                 case /* string section_id */ 3:
                     message.sectionId = reader.string();
                     break;
-                case /* string section_name */ 4:
-                    message.sectionName = reader.string();
+                case /* string stadium_id */ 4:
+                    message.stadiumId = reader.string();
+                    break;
+                case /* string code */ 5:
+                    message.code = reader.string();
+                    break;
+                case /* string name */ 6:
+                    message.name = reader.string();
                     break;
                 case /* string created_by */ 7:
                     message.createdBy = reader.string();
@@ -148,9 +174,15 @@ class ActionResponse$Type extends MessageType {
         /* string section_id = 3; */
         if (message.sectionId !== "")
             writer.tag(3, WireType.LengthDelimited).string(message.sectionId);
-        /* string section_name = 4; */
-        if (message.sectionName !== "")
-            writer.tag(4, WireType.LengthDelimited).string(message.sectionName);
+        /* string stadium_id = 4; */
+        if (message.stadiumId !== "")
+            writer.tag(4, WireType.LengthDelimited).string(message.stadiumId);
+        /* string code = 5; */
+        if (message.code !== "")
+            writer.tag(5, WireType.LengthDelimited).string(message.code);
+        /* string name = 6; */
+        if (message.name !== "")
+            writer.tag(6, WireType.LengthDelimited).string(message.name);
         /* string created_by = 7; */
         if (message.createdBy !== "")
             writer.tag(7, WireType.LengthDelimited).string(message.createdBy);

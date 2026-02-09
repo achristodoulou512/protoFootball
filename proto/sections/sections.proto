@@ -10,7 +10,9 @@ service SectionsService {
 
 message SectionsRequest {
     string section_id = 1;
-    string section_name = 2;
+    string stadium_id = 2;
+    string code = 3;
+    string name = 4;
     string created_by = 5;
     string updated_by = 6;
 }
@@ -19,7 +21,9 @@ message ActionResponse {
     uint32 status = 1;
     string message = 2;
     string section_id = 3;
-    string section_name = 4;
+    string stadium_id = 4;
+    string code = 5;
+    string name = 6;
     string created_by = 7;
     string updated_by = 8;
 }

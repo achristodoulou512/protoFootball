@@ -16,9 +16,17 @@ export interface SectionsRequest {
      */
     sectionId: string;
     /**
-     * @generated from protobuf field: string section_name = 2;
+     * @generated from protobuf field: string stadium_id = 2;
      */
-    sectionName: string;
+    stadiumId: string;
+    /**
+     * @generated from protobuf field: string code = 3;
+     */
+    code: string;
+    /**
+     * @generated from protobuf field: string name = 4;
+     */
+    name: string;
     /**
      * @generated from protobuf field: string created_by = 5;
      */
@@ -45,9 +53,17 @@ export interface ActionResponse {
      */
     sectionId: string;
     /**
-     * @generated from protobuf field: string section_name = 4;
+     * @generated from protobuf field: string stadium_id = 4;
      */
-    sectionName: string;
+    stadiumId: string;
+    /**
+     * @generated from protobuf field: string code = 5;
+     */
+    code: string;
+    /**
+     * @generated from protobuf field: string name = 6;
+     */
+    name: string;
     /**
      * @generated from protobuf field: string created_by = 7;
      */
